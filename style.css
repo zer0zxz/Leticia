@@ -1,78 +1,82 @@
 * {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
 }
 
-html,body{
+html, body {
+    min-height: 100vh;
     background-image: url(imgs/leticia/Fundo.png);
-    background-size: contain;
+    background-size: 350px;
     background-repeat: repeat;
     background-attachment: fixed;
-    height: 100vh;
-    width: 100vw;
-  animation: moverDiagonal 10s linear infinite;
+    animation: moverDiagonal 15s linear infinite;
 }
 
+/* Movimento diagonal suave */
 @keyframes moverDiagonal {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: 250px 250px;
-  }
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 250px 250px;
+    }
 }
 
-/*
-h1{
-    align-items: top;
-    margin-top: 50px;
-    text-align: center;
-} 
-*/
+/* Nome LETICIA no topo */
+section#leticia {
+    display: flex;
+    justify-content: center;
+    padding: 0px 0;
+}
 
+.galeria {
+    display: flex;
+    width: 100%;
+    max-width: 600px;
+}
+
+.galeria a {
+    flex: 1;
+}
+
+.galeria a img {
+    width: 100%;
+    height: 10vh;
+    max-height: 80px;
+    display: block;
+}
+
+/* Card central */
 section#dados {
     position: absolute;
     top: 50%;
     left: 50%;
-    display: flex;
-    text-align: center;
-    justify-content: center; /* centraliza horizontal */
-    align-items: center;     /* centraliza vertical */
-    background-image: url(imgs/leticia/foto5.jpeg);
-    background-position: center;
+    transform: translate(-50%, -50%);
+    
     width: 90%;
     max-width: 400px;
-    height: 90%;
-    max-height: 600px;
-    overflow: hidden;
+    min-height: 70vh;
+
+    background-image: url(imgs/leticia/foto5.jpeg);
+    background-position: center;
+    background-size: cover;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
     border-radius: 20px;
-    box-shadow: 0px 0px 10px rgb(0, 0, 0, 0.45);
-    transform: translate(-50%,-50%);
-    transition: width 0.3s, height 0.3s;
-    transition-timing-function: ease;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.45);
+    text-align: center;
 }
 
+/* Texto responsivo */
 section#dados p {
-    font-size: 2.2rem;
-    font-family: Arial, Helvetica, sans-serif;
-    -webkit-text-stroke: .055rem purple; /* espessura + cor da borda */
-}
-
-section#leticia { 
-    background-color: aqua;
-    display: flex;
-    justify-content: center; /* centraliza horizontalmente */
-    align-items: center;     /* centraliza verticalmente (opcional) */
-}
-
-
-.galeria {
-    display: flex;
-}
-.galeria a img {
-    width: 100%;
-    height: 10vh;
-    display: block;
+    font-size: clamp(1rem, 4vw, 1.6rem);
+    line-height: 1.4;
+    -webkit-text-stroke: 0.04rem purple;
 }
